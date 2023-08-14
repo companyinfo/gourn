@@ -14,7 +14,9 @@
 
 package gourn
 
+import "C"
 import (
+	"database/sql/driver"
 	"encoding/json"
 	"errors"
 	"regexp"
@@ -82,6 +84,23 @@ func (u *URN) UnmarshalJSON(bytes []byte) error {
 	}
 
 	*u = *value
+
+	return nil
+}
+
+// Value implements the database/sql valuer interface
+func (u *URN) Value() (driver.Value, error) {
+	return u.String(), nil
+}
+
+// Scan implements the database/sql scanner interface
+func (u *URN) Scan(v interface{}) error {
+	urn, err := scan(v)
+	if err != nil {
+		return err
+	}
+
+	*u = *urn
 
 	return nil
 }
