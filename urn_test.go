@@ -396,7 +396,7 @@ func TestValidURNJSONMarshaling(t *testing.T) {
 	// Unmarshal from JSON
 	var unmarshaledURN URN
 	err = json.Unmarshal(marshaledJSON, &unmarshaledURN)
-	require.NoError(t, err)
+	require.NoError(t, err, "Expected no error when calling UnmarshalJSON()")
 
 	assert.Equal(t, unmarshaledURN.NID, urn.NID, "Unmarshaled NID is different from original.")
 	assert.Equal(t, unmarshaledURN.NSS, urn.NSS, "Unmarshaled NSS is different from original.")
@@ -419,4 +419,31 @@ func TestInvalidURNJSONMarshaling(t *testing.T) {
 	err = urn.UnmarshalJSON([]byte("urn:api:invalid-json"))
 
 	assert.ErrorAs(t, err, &jsonErr)
+}
+
+func TestValidValuer(t *testing.T) {
+	urn := &URN{NID: "example", NSS: "resource"}
+	value, err := urn.Value()
+	require.NoError(t, err)
+	assert.Equal(t, urn.String(), value)
+}
+
+func TestValidScanner(t *testing.T) {
+	urnString := "urn:example:resource"
+	var urn URN
+	err := urn.Scan(urnString)
+	require.NoError(t, err)
+
+	expectedURN, err := Parse(urnString)
+	require.NoError(t, err)
+	assert.Equal(t, *expectedURN, urn)
+}
+
+func TestScannerWithInvalidInput(t *testing.T) {
+	var urn URN
+	err := urn.Scan(nil)
+	assert.Error(t, err)
+
+	err = urn.Scan("urn:urn")
+	assert.Error(t, err)
 }
