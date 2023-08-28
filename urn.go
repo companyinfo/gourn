@@ -14,7 +14,6 @@
 
 package gourn
 
-import "C"
 import (
 	"database/sql/driver"
 	"encoding/json"
