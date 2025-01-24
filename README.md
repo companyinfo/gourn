@@ -1,6 +1,6 @@
 # GoURN
 
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/companyinfo/gourn/ci.yaml?branch=main)](https://github.com/companyinfo/gourn/actions/workflows/ci.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/companyinfo/gourn)](https://goreportcard.com/report/github.com/companyinfo/gourn) [![Go Reference](https://pkg.go.dev/badge/github.com/companyinfo/gourn.svg)](https://pkg.go.dev/github.com/companyinfo/gourn)
+[![GoURN CI](https://github.com/companyinfo/gourn/actions/workflows/ci.yaml/badge.svg)](https://github.com/companyinfo/gourn/actions/workflows/ci.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/companyinfo/gourn)](https://goreportcard.com/report/github.com/companyinfo/gourn) [![Go Reference](https://pkg.go.dev/badge/github.com/companyinfo/gourn.svg)](https://pkg.go.dev/github.com/companyinfo/gourn)
 
 **GoURN** is a Go package that provides a comprehensive URN (Uniform Resource Name) parsing library. It follows the specifications outlined in [RFC 2141](https://datatracker.ietf.org/doc/html/rfc2141).
 
