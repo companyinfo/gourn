@@ -16,7 +16,7 @@
 To use **GoURN** in your Go project, install Go and run `go get`:
 
 ```shell
-$ go get -u github.com/companyinfo/gourn
+$ go get -u go.companyinfo.dev/gourn
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/companyinfo/gourn"
+	"go.companyinfo.dev/gourn"
 	"log"
 )
 
@@ -60,7 +60,7 @@ Contributions to **GoURN** are welcome! If you find a bug, want to add a feature
 
 ## License
 
-Copyright 2023 Company.info
+Copyright 2023-2025 Company.info
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
